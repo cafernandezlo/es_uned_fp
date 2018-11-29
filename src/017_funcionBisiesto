@@ -1,0 +1,13 @@
+#include <stdio.h>
+
+int main()
+{
+    int anho=2077;
+
+    if(anho % 4 == 0 && anho % 100 != 0 || anho % 400 == 0 ){
+        printf("\nEl anho %d es bisiesto",anho);
+    }else{
+        printf("\nEl anho %d no es bisiesto",anho);
+    }
+    return 0;
+}
