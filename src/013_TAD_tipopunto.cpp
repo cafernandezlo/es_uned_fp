@@ -23,6 +23,25 @@ void TipoPunto::Leer(){
 	int campos;
 	
 	campos = scanf("(%g,%g)",&x,&y);
+
+	/*
+		Héctor Luaces Novo 03.12.2015 <hector@luaces-novo.es>
+		
+		C+- tiene un problema a la hora de hacer dos "scanf" seguidas y es que no limpia 
+		correctamente el buffer de entrada.
+		
+		Esto hace que todo el contenido del buffer 'restante' del primer 'scanf' se vueque en el
+		segundo scanf, causando que el programa malfuncione.
+		
+		Para que las cosas funcionen correctamente es necesario vaciar el buffer de entrada 
+		de cualquier carácter que no sea el LF (\n).
+		
+		Esto lo conseguimos con el siguiente bucle, que soluciona el fallo de éste ejercicio.
+		
+		El bucle en sí no hace nada, lo único que nos interesa es que getchar() vacíe todo el buffer.
+	*/
+	while(getchar() != '\n') {
+	}
 	if(campos < 2){
 		throw PuntoNoLeido;
 	}
